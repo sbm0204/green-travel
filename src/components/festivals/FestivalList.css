@@ -8,7 +8,9 @@
 .card {
   background-color: white;
   color: black;
-  display: grid;
+  display: flex;  
+  flex-direction: column;
+  justify-content: space-between;
   gap: 10px;
   text-align: center;
   padding: 10px;
@@ -26,5 +28,5 @@
 }
 
 .card-period {
-
+ font-weight: bold;
 }
