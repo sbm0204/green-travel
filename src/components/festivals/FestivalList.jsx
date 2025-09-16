@@ -7,38 +7,43 @@ import { setScrollEventFlg } from '../../store/slices/festivalSlice.js';
 
 function FestivalList() {
   const dispatch = useDispatch();
-
   const festivalList = useSelector(state => state.festival.list);
-  const page = useSelector(state => state.festival.page);
   const scrollEventFlg = useSelector(state => state.festival.scrollEventFlg);
 
-  // 초기 데이터 가지고 오는 useEffect
   useEffect(() => {
-    dispatch(festivalIndex(1));}
-  , []);
+    
+    // - 숙제 - 
+    // FestivalList 에 관한 마운트라서 여기서 진행함. 
+    // 1. 로컬 스토리지에 저장된 날짜를 획득. 
+    // (저장된 날짜가 없으면 로컬 스토리지에 현재 날짜를 저장. 저장된 날짜가 있으면 아래 처리 속행)
+    // 1-2. 오늘 날짜와 비교.
+    // 1-3. 날짜가 과거면 로컬 스토리지 및 스테이트 초기화.
+    // 1-4. 아직 과거가 아니면 처리 속행.
 
-  // 두 번째 useEffect는 page가 변경될 때 재실행되는 것. 
-
-  useEffect(() => {
     window.addEventListener('scroll', addNextPage);
 
+    if(festivalList.length === 0) {
+      dispatch(festivalIndex()); // 마운트 단계. 계속 진행
+    }
+    
     return () => {
       window.removeEventListener('scroll', addNextPage);
-    }
-  }, [page]);
+    }}
+  , []);
 
   // 다음 페이지 가져오기. 
   function addNextPage() {
     // 스크롤 관련 처리
     const docHeight = document.documentElement.scrollHeight; // 문서의 Y축 총 길이
     const winHeight = window.innerHeight; // 윈도우의 Y축 총 길이
-    const nowHeight = window.scrollY; // 현재 스크롤의 Y축 위치
+    const nowHeight = Math.ceil(window.scrollY); // 현재 스크롤의 Y축 위치
     const viewHeight = docHeight - winHeight; // 스크롤을 끝까지 내렸을 때의 Y축 위치
+    // console.log(viewHeight, nowHeight);
 
     // 디바운싱(버튼 중복 입력 막는 법) 처리를 해줘야한다. 
     if(viewHeight === nowHeight && scrollEventFlg) {
       dispatch(setScrollEventFlg(false));
-      dispatch(festivalIndex(page + 1));
+      dispatch(festivalIndex());
     }
   }
   

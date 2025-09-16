@@ -1,7 +1,6 @@
 import Header from './components/common/Header';
 import './App.css';
-import { Outlet } from 'react-router-dom';
-
+import { Outlet, ScrollRestoration } from 'react-router-dom';
 function App() {
 
   return (
@@ -10,6 +9,9 @@ function App() {
       <main>
         <Outlet></Outlet>
       </main>
+
+      {/* 스크롤 초기화 해주는 아이, 최상위 컴포넌트에 한 번만 추가 */}
+      <ScrollRestoration />
     </>
   )
 }
