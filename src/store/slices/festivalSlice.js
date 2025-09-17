@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { festivalIndex } from "../thunks/festivalThunk";
-import { localStorageUtil } from "../../utils/localStrageUtil";
+import { festivalIndex } from "../thunks/festivalThunk.js";
+import { localStorageUtil } from "../../utils/localStorageUtil";
 
 const festivalSlice = createSlice({
   name: 'festivalSlice',
   initialState: {
-    list: localStorageUtil.getFestivalList() ? localStorageUtil.getFestivalList : [],     // 페스티벌 리스트 저장 (지금 식은 localStorageUtil에 자료가 있는지 먼저 확인하고 ㄱ)
-    page: localStorageUtil.getFestivalPage() ? localStorageUtil.getFestivalPage : 0,    // 현재 페이지 번호
-    scrollEventFlg: localStorageUtil.getFestivalScrollFlg() ? localStorageUtil.getFestivalScrollFlg : true, // 스크롤 이벤트 디바운싱 제어 플래그
+    list: localStorageUtil.getFestivalList() ? localStorageUtil.getFestivalList() : [],     // 페스티벌 리스트 저장 (지금 식은 localStorageUtil에 자료가 있는지 먼저 확인하고 ㄱ)
+    page: localStorageUtil.getFestivalPage() ? localStorageUtil.getFestivalPage() : 0,    // 현재 페이지 번호
+    scrollEventFlg: localStorageUtil.getFestivalScrollFlg() ? localStorageUtil.getFestivalScrollFlg() : true, // 스크롤 이벤트 디바운싱 제어 플래그
   },
   reducers: {
     setScrollEventFlg: (state, action) => {
