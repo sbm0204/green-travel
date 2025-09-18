@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import './FestivalShow.css';
 import { useDispatch, useSelector } from "react-redux";
-import { dateFormatter } from "../../utils/dateFormatter.js";
+import { dateFormatter } from "../../utils/dateFormathttps://web.dominos.co.kr/goods/list?dsp_ctgr=C0101ter.js";
 import { setFestivalInfo } from "../../store/slices/festivalShowSlice.js";
 import { useEffect } from "react";
 
@@ -16,7 +16,7 @@ function FestivalShow() {
 
   useEffect(() => {
     const item = festivalList.find(item => params.id === item.contentid);
-    dispatch(setFestivalInfo(item));
+    dispatch(setFestivalInfo(item)); // useEffect 안에 담길 수도 있고 안 담길 수도 있다.
   }, []);
 
   function redirectBack() {
