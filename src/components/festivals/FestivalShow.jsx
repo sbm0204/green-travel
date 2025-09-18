@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import './FestivalShow.css';
 import { useDispatch, useSelector } from "react-redux";
-import { dateFormatter } from "../../utils/dateFormathttps://web.dominos.co.kr/goods/list?dsp_ctgr=C0101ter.js";
+import { dateFormatter } from "../../utils/dateFormatter.js";
 import { setFestivalInfo } from "../../store/slices/festivalShowSlice.js";
 import { useEffect } from "react";
 
