@@ -24,6 +24,14 @@ const router = createBrowserRouter([
    } 
 ]);
 
+// `path: '*'`
+
+// { path: '*', element: <NotFound /> }
+// ```
+
+// - **기능**: 존재하지 않는 경로에 접근했을 때 보여줄 fallback 페이지.
+// - **비유**: “그 방은 없어요” 안내 페이지.
+
 function Router() {
   return <RouterProvider router={router} />
 }
