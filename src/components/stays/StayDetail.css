@@ -1,22 +1,23 @@
-.show-container {
+.detail-container {
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   color: #f4e285;
+
 }
 
-.show-title {
+.detail-title {
   font-size: 50px;
   font-weight: 900;
 }
 
-.show-period {
+.detail-phonenumber {
   font-size: 25px;
 }
 
-.show-img {
+.detail-img {
   width: 100%;
 }
 

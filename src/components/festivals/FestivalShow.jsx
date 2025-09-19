@@ -19,7 +19,7 @@ function FestivalShow() {
     dispatch(setFestivalInfo(item)); // useEffect 안에 담길 수도 있고 안 담길 수도 있다.
   }, []);
 
-  function redirectBack() {
+  function redirectBackToTheList() {
     navigate(-1);
   }
   return (
@@ -27,7 +27,7 @@ function FestivalShow() {
       { 
         festivalInfo.title && 
         <div className="show-container">
-          <button type="button" style={{ color: 'purple', fontSize: '20px' }} onClick={redirectBack}>되돌아가기</button>
+          <button type="button" className="btnToTheList" onClick={redirectBackToTheList}>Back to the festival list</button>
           <p className="show-title">{festivalInfo.title}</p>
           <p className="show-period">{dateFormatter.withHyphenYMD(festivalInfo.eventstartdate)} ~ {dateFormatter.withHyphenYMD(festivalInfo.eventenddate)}</p>
           <img className="show-img" src={festivalInfo.firstimage} alt={`${festivalInfo.title} 사진`}></img>

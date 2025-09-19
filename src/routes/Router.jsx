@@ -3,6 +3,8 @@ import Main from "../components/Main.jsx";
 import App from "../App.jsx"
 import FestivalList from "../components/festivals/FestivalList.jsx";
 import FestivalShow from "../components/festivals/FestivalShow.jsx";
+import StayList from "../components/stays/StayList.jsx";
+import StayDetail from "../components/stays/StayDetail.jsx";
 
 const router = createBrowserRouter([
    {
@@ -19,7 +21,15 @@ const router = createBrowserRouter([
       {
         path: '/festivals/:id',
         element: <FestivalShow />
-      }
+      },
+      {
+        path: '/stays',
+        element: <StayList />
+      },
+      {
+        path: '/stays/:id',
+        element: <StayDetail />
+      },
     ]
    } 
 ]);
